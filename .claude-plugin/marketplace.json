@@ -1,0 +1,14 @@
+{
+  "name": "yuxiang-agent-skills",
+  "owner": {
+    "name": "Yuxiang Ma",
+    "email": "yxma98@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "research-kit",
+      "source": "./plugins/research-kit",
+      "description": "Evidence-first research engineering: ground-truth validation, evidence-driven optimization, results sites, bilingual pages, render verification, debug ledgers"
+    }
+  ]
+}

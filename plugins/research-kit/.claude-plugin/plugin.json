@@ -1,0 +1,6 @@
+{
+  "name": "research-kit",
+  "description": "Skills distilled from real research-engineering sessions: validate estimators against ground truth without fooling yourself, optimize only on measured evidence, publish concise results sites with every claim traceable, keep bilingual pages from drifting, verify renders before shipping, and keep a debug ledger that survives context loss.",
+  "version": "0.1.0",
+  "author": { "name": "Yuxiang Ma" }
+}
