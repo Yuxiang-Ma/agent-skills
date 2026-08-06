@@ -31,6 +31,28 @@ adversarial scrutiny — including your own.
    agree at high rank-correlation, plus zero-response on known-negative
    samples, is real evidence. A monotone proxy (press depth vs force) gives
    attenuated rank correlation — say so when reporting it.
+7. **Plant an anchor that can falsify the method.** Include one case whose
+   answer is known independently of the pipeline, and treat disagreement as
+   evidence against the *method*, not against that case. Recovering a
+   threshold from released data looked healthy across 13 sources — until the
+   one source whose script states `I_MIN = 12` outright came back 0.00. Nine
+   of the others had silently returned a degenerate "0.0" that filled the
+   table, raised no error, and would have been adopted. **A failed inference
+   method looks exactly like a successful one** unless something in the run
+   is capable of contradicting it.
+8. **Check the metric can discriminate before believing it.** A pass proves
+   nothing if the statistic cannot separate the outcomes you care about.
+   Comparing kept-row *sets* was meaningless where the key was non-unique:
+   166,104 rows collapsed to 31,096 distinct keys, so matching the key set
+   was equally consistent with emitting either count. Verify uniqueness,
+   cardinality, or variance of the comparison quantity — then state what the
+   passing test actually establishes.
+9. **Watch for circular references, not just circular splits.** A baseline
+   reconstructed from post-filter data inherits the filter. Rebuilding a
+   "no-contact" reference from a released set containing only *contact*
+   frames is unrecoverable in principle: where each group held one frame, the
+   group median was that frame and every difference was identically zero. The
+   degenerate output was a property of the reconstruction, not a measurement.
 
 ## Default workflow
 
