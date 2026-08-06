@@ -4,7 +4,7 @@ Portable skills for coding agents, distilled from real research-engineering
 sessions — not aspirational checklists. Each skill exists because skipping it
 cost hours at least once.
 
-**research-kit** (10 skills):
+**research-kit** (11 skills):
 
 | skill | one line |
 |---|---|
@@ -18,6 +18,7 @@ cost hours at least once.
 | `design-regression-guard` | every fixed visual defect class becomes an assertion in the same commit; the guard's first victims are your own fixes |
 | `single-source-visual-consistency` | one law per shared quantity across schematic, inset, readout and sensor views; a chain test walks model → ink → number |
 | `in-page-model-probe` | probe a page's embedded JS model via page.evaluate: parameter sweeps, monotonicity, model-vs-render reconciliation |
+| `release-parity-refactor` | refactoring code whose output already shipped: the artifact is the spec, find the real producer by output fingerprint, grade sources by whether a proof is possible, never tune a parameter to make the check pass |
 
 ## Install
 

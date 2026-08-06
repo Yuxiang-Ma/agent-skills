@@ -38,6 +38,21 @@ next session) from re-trying it.
 5. Version-stamp regenerable artifacts (`pipeline_version` in outputs) so a
    fixed pipeline invalidates stale outputs mechanically instead of by
    memory.
+6. **"I launched it" is not "it is running."** Before recording progress on a
+   long job, confirm the process exists and its output is growing. A waiter
+   built on `pgrep -f "<pattern>"` matched *its own* shell command line, never
+   cleared, and spun for five hours while the job it was waiting for had never
+   started — the log sat at 0 bytes and two progress updates were reported
+   from it. Use a self-exclusion (`[p]attern`), check the output file size,
+   and prefer a blocking foreground run when a result must be observed.
+   Delegated workers are the common victim: several backgrounded their own
+   jobs and returned empty-handed, so the controller re-ran and collected the
+   results itself.
+7. **Re-measure timings on an idle machine before quoting them.** Profiling
+   under concurrent load overstated per-frame cost by 3–8x and turned a
+   ~17-minute job into an "85 minute" estimate that was then used to frame a
+   scope decision. A cost number that changes a plan deserves one clean
+   measurement.
 
 ## When to surface it
 
