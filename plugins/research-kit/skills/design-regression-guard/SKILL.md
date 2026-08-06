@@ -28,6 +28,26 @@ For data-driven graphics, assert the **semantic contract**, not pixels:
 law equals view B's". Read the page's own model functions via
 `page.evaluate` so the test and the page share one source of truth.
 
+## Starter assertion (semantic contract for a data graphic)
+
+```python
+# The drawn ink must match the number the page prints beside it.
+amber = page.evaluate("""() => {
+  const c = document.querySelector('#field-canvas');
+  const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
+  let ink = 0, total = 0;
+  for (let i = 0; i < d.length; i += 4) {
+    if (d[i+3] < 200) continue;                  // skip transparent
+    total += 1;
+    if (d[i] - d[i+2] > 90) ink += 1;            // hue classifier
+  }
+  return ink / Math.max(total, 1);
+}""")
+reported = page.evaluate("modelCoupledFraction()")   # the page's own model
+assert abs(amber - reported) < 0.03, (
+    f"drawn {amber:.1%} vs reported {reported:.1%}")
+```
+
 ## Why in the same commit
 
 From a real session, the guard caught its own author twice within hours:

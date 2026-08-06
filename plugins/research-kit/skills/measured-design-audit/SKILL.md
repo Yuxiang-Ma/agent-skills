@@ -27,6 +27,32 @@ Run at 375 / 768 / 1280 / 1920 minimum. Collect in a single DOM walk:
 - **Overflow**: `scrollWidth − clientWidth` at document level, plus any
   element whose rect exits the viewport (whitelist off-screen skip links).
 
+## Starter probe (one evaluate per route x viewport)
+
+```js
+// page.evaluate(...) -- collect everything in one DOM walk
+(() => {
+  const fails = [], touch = [], sizes = new Set();
+  const lum = (c) => { /* WCAG relative luminance of [r,g,b] */ };
+  const bgOf = (el) => { /* walk ancestors for the first bg alpha > .85 */ };
+  document.querySelectorAll('body *').forEach((el) => {
+    const cs = getComputedStyle(el);
+    if (cs.display === 'none') return;
+    const r = el.getBoundingClientRect();
+    if (['A','BUTTON','INPUT','SELECT'].includes(el.tagName)
+        && r.height > 0 && (r.height < 44 || r.width < 44))
+      touch.push({tag: el.tagName, w: r.width|0, h: r.height|0});
+    const txt = (el.textContent || '').trim();
+    if (!txt || el.children.length) return;      // leaf text only
+    sizes.add(parseFloat(cs.fontSize).toFixed(1));
+    // contrast: composite cs.color over bgOf(el), compare to 4.5 / 3.0
+  });
+  return { fails, touch, sizes: [...sizes],
+           overflow: document.documentElement.scrollWidth
+                   - document.documentElement.clientWidth };
+})()
+```
+
 ## Fix by solving, not nudging
 
 - Contrast: numerically solve the minimum color shift that reaches 4.5:1
