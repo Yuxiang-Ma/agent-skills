@@ -4,7 +4,7 @@ Portable skills for coding agents, distilled from real research-engineering
 sessions — not aspirational checklists. Each skill exists because skipping it
 cost hours at least once.
 
-**research-kit** (6 skills):
+**research-kit** (10 skills):
 
 | skill | one line |
 |---|---|
@@ -14,6 +14,10 @@ cost hours at least once.
 | `bilingual-pages` | translated pages as asserted derivations of the source — desync fails the build instead of shipping stale text |
 | `render-verify` | headless-render screenshot loop for generated HTML/figures; what grep can't catch, a screenshot does |
 | `debug-ledger` | found→fix ledger + plan-file discipline; negative results are deliverables |
+| `measured-design-audit` | design review by measurement: computed WCAG contrast, 44px touch targets, font-size census, multi-viewport overflow — fixes solved numerically, not nudged |
+| `design-regression-guard` | every fixed visual defect class becomes an assertion in the same commit; the guard's first victims are your own fixes |
+| `single-source-visual-consistency` | one law per shared quantity across schematic, inset, readout and sensor views; a chain test walks model → ink → number |
+| `in-page-model-probe` | probe a page's embedded JS model via page.evaluate: parameter sweeps, monotonicity, model-vs-render reconciliation |
 
 ## Install
 
