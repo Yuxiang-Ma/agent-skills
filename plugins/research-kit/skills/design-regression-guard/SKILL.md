@@ -1,5 +1,6 @@
 ---
 name: design-regression-guard
+category: design
 description: This skill should be used after fixing any visual, layout, accessibility, or content defect on a website — turn each fixed defect class into an automated assertion so it cannot silently return. Use when the user says "make sure this doesn't break again", after a design-review round, or when building a check suite for a static site.
 ---
 

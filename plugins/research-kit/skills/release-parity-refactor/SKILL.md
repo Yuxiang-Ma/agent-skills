@@ -1,5 +1,6 @@
 ---
 name: release-parity-refactor
+category: dataset
 description: This skill should be used when refactoring, rewriting, or reorganizing code that already produced a published artifact — a released dataset, a shipped model, a public export. Use it when the user says "clean up this pipeline", "extract these scripts into a package", "modernize the build", or whenever the old code's output is already in someone else's hands.
 ---
 

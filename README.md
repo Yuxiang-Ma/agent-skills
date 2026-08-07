@@ -4,21 +4,45 @@ Portable skills for coding agents, distilled from real research-engineering
 sessions — not aspirational checklists. Each skill exists because skipping it
 cost hours at least once.
 
-**research-kit** (11 skills):
+**research-kit** (13 skills, by category):
+
+### dataset — building and maintaining data releases
 
 | skill | one line |
 |---|---|
-| `gt-validation` | validate estimators against ground truth without fooling yourself (non-circular splits, ceilings, stratification, method × dataset matrices) |
-| `evidence-driven-optimization` | feature-cache workbench; every change motivated by a measured defect and verified A/B on held-out data; rejected variants kept |
-| `results-site` | evidence-first static results sites (HF Space): four page roles, one-claim-one-source, collapse big tables, numbers injected at build time |
-| `bilingual-pages` | translated pages as asserted derivations of the source — desync fails the build instead of shipping stale text |
-| `render-verify` | headless-render screenshot loop for generated HTML/figures; what grep can't catch, a screenshot does |
-| `debug-ledger` | found→fix ledger + plan-file discipline; negative results are deliverables |
-| `measured-design-audit` | design review by measurement: computed WCAG contrast, 44px touch targets, font-size census, multi-viewport overflow — fixes solved numerically, not nudged |
-| `design-regression-guard` | every fixed visual defect class becomes an assertion in the same commit; the guard's first victims are your own fixes |
-| `single-source-visual-consistency` | one law per shared quantity across schematic, inset, readout and sensor views; a chain test walks model → ink → number |
-| `in-page-model-probe` | probe a page's embedded JS model via page.evaluate: parameter sweeps, monotonicity, model-vs-render reconciliation |
+| `dataset-release-integrity` | a dataset card is a claim nobody checks: test declared configs/splits/schema against the parquet, prove a schema fix by running the card's own example, and never rewrite published bytes in place |
 | `release-parity-refactor` | refactoring code whose output already shipped: the artifact is the spec, find the real producer by output fingerprint, grade sources by whether a proof is possible, never tune a parameter to make the check pass |
+
+### research — validating methods without fooling yourself
+
+| skill | one line |
+|---|---|
+| `evidence-driven-optimization` | feature-cache workbench; every change motivated by a measured defect and verified A/B on held-out data; rejected variants kept |
+| `gt-validation` | validate estimators against ground truth without fooling yourself (non-circular splits, ceilings, stratification, method × dataset matrices) |
+
+### debug — investigation discipline and trustworthy verification
+
+| skill | one line |
+|---|---|
+| `debug-ledger` | found→fix ledger + plan-file discipline; negative results are deliverables |
+| `in-page-model-probe` | probe a page's embedded JS model via page.evaluate: parameter sweeps, monotonicity, model-vs-render reconciliation |
+| `render-verify` | headless-render screenshot loop for generated HTML/figures; what grep can't catch, a screenshot does |
+| `verification-that-can-fail` | a check you have never seen fail is not evidence: red-green every regression, mutation-test the suite, guard the parser, and make sure the criterion could express the failure you care about |
+
+### publishing — shipping results others can check
+
+| skill | one line |
+|---|---|
+| `bilingual-pages` | translated pages as asserted derivations of the source — desync fails the build instead of shipping stale text |
+| `results-site` | evidence-first static results sites (HF Space): four page roles, one-claim-one-source, collapse big tables, numbers injected at build time |
+
+### design — web/design work verified by measurement
+
+| skill | one line |
+|---|---|
+| `design-regression-guard` | every fixed visual defect class becomes an assertion in the same commit; the guard's first victims are your own fixes |
+| `measured-design-audit` | design review by measurement: computed WCAG contrast, 44px touch targets, font-size census, multi-viewport overflow — fixes solved numerically, not nudged |
+| `single-source-visual-consistency` | one law per shared quantity across schematic, inset, readout and sensor views; a chain test walks model → ink → number |
 
 ## Install
 
@@ -34,8 +58,10 @@ cost hours at least once.
 ```bash
 git clone https://github.com/Yuxiang-Ma/agent-skills
 cd agent-skills
-./install.sh --list
+./install.sh --list                          # name + category
+./install.sh --categories                   # dataset, research, debug, ...
 ./install.sh --project ~/myrepo --skills gt-validation,render-verify
+./install.sh --project ~/myrepo --category dataset,debug
 ./install.sh --project ~/myrepo --remove render-verify
 ./install.sh --global                       # ~/.claude/skills for every project
 ```

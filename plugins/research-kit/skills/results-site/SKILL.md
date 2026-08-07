@@ -1,5 +1,6 @@
 ---
 name: results-site
+category: publishing
 description: This skill should be used when the user asks to "make a results website", "publish results to a page/HF Space", "展示方法和效果", or wants research results presented online concisely but with every claim traceable to evidence.
 ---
 
