@@ -1,5 +1,6 @@
 ---
 name: debug-ledger
+category: debug
 description: This skill should be used during any multi-step technical investigation or long autonomous work session — keeps a found→fix ledger and a plan file so that failures, rejected ideas, and negative results survive context loss and become publishable evidence.
 ---
 

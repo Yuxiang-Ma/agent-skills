@@ -1,5 +1,6 @@
 ---
 name: gt-validation
+category: research
 description: This skill should be used when the user asks to "validate a method/estimator", "compare with ground truth", "find datasets to validate on", or needs to evaluate a perception/estimation pipeline against labeled or proxy ground truth without fooling themselves.
 ---
 

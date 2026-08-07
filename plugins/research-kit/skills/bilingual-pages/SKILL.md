@@ -1,5 +1,6 @@
 ---
 name: bilingual-pages
+category: publishing
 description: This skill should be used when the user asks to "add a Chinese version", "make the page bilingual", "增加中文版", or needs to maintain translated variants of generated HTML/docs without them silently drifting apart.
 ---
 

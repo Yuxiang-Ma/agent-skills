@@ -1,5 +1,6 @@
 ---
 name: measured-design-audit
+category: design
 description: This skill should be used when the user asks to review, improve, or "beautify" a website's design, layout, colors, fonts, or accessibility. Replaces eyeballing with measurement — computed contrast, touch targets, font-size census, multi-viewport overflow — so every fix is provable and every claim has a number.
 ---
 
