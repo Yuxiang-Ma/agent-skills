@@ -1,6 +1,7 @@
 ---
 name: verification-that-can-fail
 category: debug
+tags: [mutation-testing, red-green, test-quality, false-pass, evidence]
 description: This skill should be used whenever you are about to trust a green check — a passing test suite, a regression harness, a comparison script, an eval — and especially before claiming work is done. Use it when the user asks "is this actually working?", "validate our results", or when a verification passes on the first try.
 ---
 

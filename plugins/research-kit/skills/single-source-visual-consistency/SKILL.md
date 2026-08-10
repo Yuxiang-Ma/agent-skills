@@ -1,6 +1,7 @@
 ---
 name: single-source-visual-consistency
 category: design
+tags: [multi-view, consistency, schematic, chain-test]
 description: This skill should be used when one physical or statistical quantity appears in multiple views of the same page or figure — a schematic, a zoomed inset, a readout, a simulated sensor image — and the user reports the views "don't match" or "look inconsistent". Establishes one source-of-truth function per quantity and a measured consistency chain.
 ---
 

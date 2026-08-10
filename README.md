@@ -8,6 +8,17 @@ cost hours at least once.
 
 ### dataset — building and maintaining data releases
 
+> **Scope.** These two are for a **frozen, published artifact** — a release
+> others already downloaded, whose producing code may no longer be runnable.
+> For live tables (freshness SLAs, DQ dimensions, upstream schema changes) or
+> for building the pipeline itself (Airflow, dbt, Spark), the ecosystem
+> already has good coverage — e.g. `data-quality-auditor` and
+> `senior-data-engineer` in [borghei/Claude-Skills](https://github.com/borghei/Claude-Skills).
+> Both worlds say "schema drift", but a warehouse means an upstream source
+> changed and the pipeline can be re-run; a release means your card diverged
+> from bytes you already shipped, and it cannot be re-derived.
+
+
 | skill | one line |
 |---|---|
 | `dataset-release-integrity` | a dataset card is a claim nobody checks: test declared configs/splits/schema against the parquet, prove a schema fix by running the card's own example, and never rewrite published bytes in place |

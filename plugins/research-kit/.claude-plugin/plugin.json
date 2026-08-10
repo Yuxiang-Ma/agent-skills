@@ -1,7 +1,7 @@
 {
   "name": "research-kit",
   "description": "Skills distilled from real research-engineering sessions, in five categories: dataset (refactor pipelines against the artifact they already shipped, and keep a release's card matching its bytes), research (validate estimators against ground truth without fooling yourself, optimize only on measured evidence), debug (found-to-fix ledgers, render verification, and verification that can actually fail), publishing (results sites and bilingual pages that cannot drift), and design (web work audited by measurement, with visual fixes frozen as regressions).",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "author": {
     "name": "Yuxiang Ma"
   }

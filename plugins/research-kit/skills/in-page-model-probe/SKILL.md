@@ -1,6 +1,7 @@
 ---
 name: in-page-model-probe
 category: debug
+tags: [page-evaluate, parameter-sweep, monotonicity, model-vs-render]
 description: This skill should be used when a web page embeds a numerical or physical model in client-side JavaScript (a simulation, an interactive figure, a parameter-driven visualization) and its behavior needs to be verified or tuned — sweep parameters, check monotonicity, and reconcile model vs render without touching the UI.
 ---
 

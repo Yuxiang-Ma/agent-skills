@@ -1,6 +1,7 @@
 ---
 name: evidence-driven-optimization
 category: research
+tags: [ab-testing, held-out, feature-cache, measured-defect, optimization]
 description: This skill should be used when the user asks to "optimize the method", "improve accuracy", "why is the metric low", or wants to iterate on an algorithm/pipeline against a measurable target without cargo-culting changes.
 ---
 
