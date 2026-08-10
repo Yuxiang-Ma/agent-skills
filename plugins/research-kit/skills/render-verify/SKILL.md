@@ -1,6 +1,7 @@
 ---
 name: render-verify
 category: debug
+tags: [headless-render, screenshot, visual-check, playwright]
 description: This skill should be used when the user generates HTML pages, figures, or visual artifacts and needs to verify they actually render correctly — "check the page", "does it look right", or after any site/figure build before publishing.
 ---
 

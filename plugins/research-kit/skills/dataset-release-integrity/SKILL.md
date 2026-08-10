@@ -1,6 +1,7 @@
 ---
 name: dataset-release-integrity
 category: dataset
+tags: [dataset-card, schema-uniformity, huggingface, republish, data-release, provenance]
 description: This skill should be used when publishing or maintaining a multi-config dataset release (HuggingFace, Zenodo, an internal data lake) — when the user asks to "add a subset", "fix the dataset schema", "update the dataset card", "unify the configs", or whenever a README/datacard makes a structural claim that nobody checks against the data.
 ---
 
@@ -81,3 +82,31 @@ Ship the checks as tests, not as review discipline:
 Add a guard for the guard: assert the parser actually matched something. A
 regex that silently stops matching turns every test built on it into a
 vacuous pass, which is worse than having no test at all.
+
+## When this is the wrong skill
+
+This is about a **frozen, published artifact** — a release other people have
+already downloaded, whose producing code may no longer be runnable. If your
+data is still flowing, you want warehouse practice instead:
+
+| situation | use |
+|---|---|
+| live tables, freshness SLAs, upstream schema changes, DQ dimensions, incident response | a data-quality-auditor skill (e.g. `borghei/Claude-Skills engineering/data-quality-auditor`) |
+| building or optimising the pipeline itself — Airflow, dbt, Spark, Kafka | a data-engineering skill (e.g. `engineering/senior-data-engineer`) |
+| dimensional models, semantic layers, dbt marts | an analytics-engineering skill |
+
+The vocabulary overlaps — both worlds say "schema drift" — but the referent
+differs and so does the remedy:
+
+- In a warehouse, drift means an **upstream source changed** and the fix is to
+  adapt the pipeline. Freshness is a first-class dimension.
+- In a release, drift means **your documentation diverged from bytes you
+  already shipped**. Nothing upstream changed. There is no freshness: the
+  artifact is frozen, and the failure is that the card lies about it.
+
+The asymmetry that matters: a warehouse pipeline can be re-run, so a bad load
+is recoverable. A published release cannot be re-derived — the RNG seed may be
+gone, and users hold copies of the old bytes. That is why the ordering under
+"Before touching published bytes" is strict rather than advisory, and why
+`release-parity-refactor` grades sources by whether parity is *provable at all*
+instead of assuming a re-run settles it.

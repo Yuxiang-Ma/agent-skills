@@ -1,6 +1,7 @@
 ---
 name: release-parity-refactor
 category: dataset
+tags: [release-parity, published-artifact, refactor, provenance, regression, dataset]
 description: This skill should be used when refactoring, rewriting, or reorganizing code that already produced a published artifact — a released dataset, a shipped model, a public export. Use it when the user says "clean up this pipeline", "extract these scripts into a package", "modernize the build", or whenever the old code's output is already in someone else's hands.
 ---
 
@@ -119,3 +120,15 @@ claim, and one unlabelled tier quietly voids it.
 Record findings and rejected reconstructions in the ledger (see
 `debug-ledger`); when the artifact you are reproducing is an estimator's
 output rather than a dataset, `gt-validation` covers the scoring side.
+
+## When this is the wrong skill
+
+This applies when the output **already shipped** and the producing code is
+being reorganised. If the pipeline is live and re-runnable, reach for
+warehouse tooling instead — a data-quality-auditor skill for DQ dimensions,
+freshness SLAs and drift monitoring, or a data-engineering skill for Airflow /
+dbt / Spark design. Those assume you can re-run the pipeline and compare to a
+fresh load; this skill exists precisely for when you cannot.
+
+For keeping the release's card, configs and schema honest after the refactor
+lands, see `dataset-release-integrity`.
